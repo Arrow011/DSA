@@ -1,0 +1,8 @@
+# Recursion means calling a function or a method within itself.
+# One thing to notice here is that it works in forward direction i.e first executes the task
+ and then calls the function calls
+# To the examples used, printing 1 to N or N to 1 , we are first printing the number and then
+ calling the method. But in scenario, if we cant use addition in first and substraction in second
+ how do we approach the problem? i.e. cant do i++ or n--.
+# The answer to above question is "Backtracking". The approach is similar to recursion but we just
+ call the function before the actual print statement i.e. it works backwards.
