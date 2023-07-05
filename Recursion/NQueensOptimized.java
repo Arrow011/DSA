@@ -8,7 +8,7 @@ import java.util.List;
 
 public class NQueensOptimized {
     public static void main(String[] args) {
-               int N = 4;
+        int N = 4;
         List < List < String >> queen = solveNQueens(N);
         int i = 1;
         for (List < String > it: queen) {
