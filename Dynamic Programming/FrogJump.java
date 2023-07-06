@@ -8,9 +8,11 @@ class FrogJump{
         int n = height.length;
         dp = new int[n];
         int ans = minEnergy(height,n-1);
+        int k = 1;
         System.out.println("Memoization:"+ans);
         System.out.println("Tabulation:"+minEnergyTab(height,n));
         System.out.println("Space Optimized:"+minEnergyOptimized(height,n));
+        System.out.println("For k jumps : "+minEnergyKJumps(height, k,n-1));
     }
     /*Memoization using dp[] array */
     public static int minEnergy(int[] height,int index){
@@ -51,5 +53,21 @@ class FrogJump{
             prev = Math.min(left, right);
         }
         return prev;
+    }
+
+    /*For k jumps */
+    public static int minEnergyKJumps(int[] height, int k, int index){
+        if(index == 0) return 0;
+        int minEnergy = Integer.MAX_VALUE;
+        for(int j = 1; j <= k; j++){
+            if(index - j >= 0) {
+                int jumpEnergy = minEnergyKJumps(height, k, index-j) + (int) Math.abs(height[index] - height[index-j]);
+                minEnergy = Math.min(minEnergy, jumpEnergy);
+            }
+            else{
+                break;
+            }
+        }
+        return minEnergy;
     }
 }
